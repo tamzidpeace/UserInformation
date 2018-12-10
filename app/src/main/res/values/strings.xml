@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">UserInformation</string>
+    <string name="add_name">Add Name</string>
+    <string name="enter_first_name">Enter First Name</string>
+    <string name="enter_last_name">Enter Last Name</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="save">save</string>
+</resources>
