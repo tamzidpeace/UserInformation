@@ -1,11 +1,15 @@
 package com.example.arafat.userinformation;
 
+import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 
 @Entity
 public class User {
 
+    @PrimaryKey(autoGenerate = true)
     private int id;
+
     private String firstName;
     private String lastName;
     private String email;
@@ -15,6 +19,10 @@ public class User {
         this.lastName = lastName;
         this.email = email;
     }
+
+
+
+    // getter setter methods
 
     public int getId() {
         return id;

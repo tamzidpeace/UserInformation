@@ -1,5 +1,6 @@
 package com.example.arafat.userinformation;
 
+import android.arch.persistence.room.Room;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,11 +30,17 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        //todo work with adapter
-        User user = new User("Arafat", "Kamal", "tamjedpeace@gmail.com");
-        for (int i = 0; i <10 ; i++) {
-            name.add(user);
-        }
+        // work with adapter
+
+
+        UserDatabase db = Room.databaseBuilder(getApplicationContext(), UserDatabase.class,
+                "UserDatabase")
+                .allowMainThreadQueries()
+                .build();
+
+        name = db.userDao().getAllUsers();
+
+
         recyclerView.setAdapter(new NameAdapter(name));
 
         addName = findViewById(R.id.add_name);
@@ -42,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // TODO: 11-Dec-18  : use of Log-d
-                Log.d(TAG, "clicked");
+                //Log.d(TAG, "clicked");
                 startActivity(new  Intent(MainActivity.this, AddName.class));
             }
         });
