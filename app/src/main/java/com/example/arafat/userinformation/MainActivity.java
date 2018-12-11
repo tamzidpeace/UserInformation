@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     Button addName;
     private static final String TAG = "MainActivity";
     private RecyclerView recyclerView;
-    private List<String> name = new ArrayList<>();
+    private List<User> name = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +30,9 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         //todo work with adapter
+        User user = new User("Arafat", "Kamal", "tamjedpeace@gmail.com");
         for (int i = 0; i <10 ; i++) {
-            name.add("arafat " + i);
+            name.add(user);
         }
         recyclerView.setAdapter(new NameAdapter(name));
 
